@@ -19,9 +19,6 @@ export class WeatherComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if (this.city.trim() === '') {
-    //   alert('Enter the city');
-    // }
   }
 
   getWeather() {
@@ -31,6 +28,10 @@ export class WeatherComponent implements OnInit {
           console.log(response);
           this.weather = response;
           this.isHidden = false;
+        }, error => {
+          alert('City is not found');
+          this.isHidden = true;
+          this.weather = null;
         });
     } else {
       alert('Enter the city');
