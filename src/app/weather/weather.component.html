@@ -1,0 +1,26 @@
+<nav class="navbar justify-content-between navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Weather</a>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input [(ngModel)]="city" name="input" class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button (click)="getWeather()" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+
+<h2 class="text-center mt-5 mb-5" >Weather in your city</h2>
+
+<div class="card border-primary m-auto" style="max-width: 70rem;">
+  <div class="card-header">{{weather?.city.name}}</div>
+  <div class="card-body">
+    <p class="card-text" [hidden]="!isHidden">Search the city</p>
+    <div class="info" [hidden]="isHidden">
+    <p class="card-text">Temperature: {{weather?.list[0].main.temp}} °F</p>
+    <p class="card-text">MaxTemperature: {{weather?.list[0].main.temp_max}} °F</p>
+    <p class="card-text">MinTemperature: {{weather?.list[0].main.temp_min}} °F</p>
+    <p class="card-text">The weather description: {{weather?.list[0].weather[0].description}}</p>
+  </div>
+  </div>
+</div>
+
+
+
